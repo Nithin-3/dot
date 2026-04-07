@@ -1,0 +1,60 @@
+window {
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.0);
+    /* opacity: 1; */
+    font-family: FontAwesome;
+}
+
+
+#input {
+    margin: 0;
+    border: 3px solid #019606;
+    border-radius:0;
+    background-color: rgb(0, 0, 0);
+    color : #fdf6e3;
+}
+#input:focus {
+    outline:none;
+    box-shadow: none;
+}
+
+#inner-box {
+    margin: 0px;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+/* #inner-box flowboxchild:nth-child(even) { */
+/*     background-color: #555555; */
+/* } */
+
+#outer-box {
+    margin: 0px;
+    border: 2px solid #000;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+#scroll {
+    margin: 0px;
+    border: 2px solid #019606;
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#text {
+    margin: 1px;
+    /* background-color: #444444; */
+    color: #019606;
+}
+
+#entry:selected {
+    background-color: #019606;
+    color : #000;
+    outline: none;
+}
+
+#entry:selected * {
+    background-color: #019606;
+    color : #000;
+    outline: none;
+}
+
