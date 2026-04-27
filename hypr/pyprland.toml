@@ -1,0 +1,15 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "foot --app-id foot-dropterm --title foot-dropterm"
+size = "70% 70%"
+margin = 50
+pinned = false
+
+
+[scratchpads.vpn]
+command = "protonvpn-app"
+class = "protonvpn-app"
+lazy = true

@@ -1,21 +1,10 @@
--- vim.pack.add {
---   { src = 'https://github.com/nvim-lua/plenary.nvim' },
---   { src = 'https://github.com/j-hui/fidget.nvim' },
---   { src = 'https://github.com/nvim-neotest/nvim-nio' },
---   { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
---   { src = 'https://github.com/rest-nvim/rest.nvim' },
--- }
---
--- -- Install the 'http' treesitter parser (equivalent to lazy's opts.ensure_installed)
--- require('nvim-treesitter').install { 'http' }
---
--- -- Load keymaps only when editing .http files
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = 'http',
---   once = true,
---   callback = function()
---     vim.keymap.set('n', '<leader>rr', '<cmd>Rest run<CR>', { desc = 'Run HTTP request' })
---     vim.keymap.set('n', '<leader>rp', '<cmd>Rest preview<CR>', { desc = 'Preview HTTP request' })
---     vim.keymap.set('n', '<leader>rl', '<cmd>Rest last<CR>', { desc = 'Repeat last HTTP request' })
---   end,
--- })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'http',
+  once = true,
+  callback = function()
+    require('kulala').setup {}
+    vim.keymap.set('n', '<leader>rr', function() require('kulala').run() end,    { desc = 'Run request' })
+    vim.keymap.set('n', '<leader>rl', function() require('kulala').replay() end, { desc = 'Replay last request' })
+    vim.keymap.set('n', '<leader>ri', function() require('kulala').inspect() end,{ desc = 'Inspect request' })
+  end,
+})

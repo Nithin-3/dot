@@ -16,11 +16,6 @@ vim.lsp.config('lua_ls', {
     },
   },
 })
-require('mini.snippets').setup()
--- require("mini.snippets").loaders.from_vscode().lazy_load()
-require('mini.pairs').setup()
-require('mini.ai').setup()
-
 require('blink.cmp').setup {
   keymap = {
     preset = 'default', -- gives you sane defaults
@@ -34,9 +29,6 @@ require('blink.cmp').setup {
   sources = {
     default = { 'lsp', 'path', 'buffer', 'snippets' },
   },
-  -- snippets = {
-  --   expand = function(snippet) require('mini.snippets').expand(snippet.body) end,
-  -- },
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -97,4 +89,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.codelens.run()

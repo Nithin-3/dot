@@ -3,4 +3,3 @@ require('tokyonight').setup {
     comments = { italic = false },
   },
 }
-vim.cmd.colorscheme 'tokyonight-night'
