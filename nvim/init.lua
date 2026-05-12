@@ -86,34 +86,52 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.pack.add {
+	-- UI / Themes
 	'https://github.com/folke/tokyonight.nvim',
 	'https://github.com/nyoom-engineering/oxocarbon.nvim',
+	'https://github.com/EdenEast/nightfox.nvim.git',
+
+	-- LSP / Development
 	'https://github.com/neovim/nvim-lspconfig',
 	'https://github.com/mason-org/mason.nvim',
 	'https://github.com/mason-org/mason-lspconfig.nvim',
-	{ src = 'https://github.com/Saghen/blink.cmp', build = 'cargo build --release', },
+
+	-- Autocomplete / Snippets
+	{ src = 'https://github.com/Saghen/blink.cmp', build = 'cargo build --release' },
 	'https://github.com/rafamadriz/friendly-snippets',
-	'https://github.com/echasnovski/mini.nvim',
+
+	-- Fuzzy Finding / Telescope
 	'https://github.com/nvim-lua/plenary.nvim',
+	'https://github.com/nvim-telescope/telescope.nvim',
 	{
 		src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
 		build = vim.fn.executable 'make' == 1 and 'make' or nil,
 	},
 	'https://github.com/nvim-telescope/telescope-ui-select.nvim',
-	'https://github.com/nvim-tree/nvim-web-devicons',
-	'https://github.com/nvim-telescope/telescope.nvim',
+
+	-- Utilities / Core Enhancements
+	'https://github.com/echasnovski/mini.nvim',
 	'https://github.com/folke/which-key.nvim',
 	'https://github.com/karb94/neoscroll.nvim',
-	'https://github.com/nvim-lualine/lualine.nvim',
-	'https://github.com/sphamba/smear-cursor.nvim.git',
 	'https://github.com/lewis6991/gitsigns.nvim',
-	'https://github.com/MunifTanjim/nui.nvim',
-	'https://github.com/nvim-neo-tree/neo-tree.nvim',
-	'https://github.com/akinsho/toggleterm.nvim',
 	'https://github.com/folke/todo-comments.nvim',
+
+	-- File Explorer / Navigation
+	'https://github.com/nvim-tree/nvim-web-devicons',
+	'https://github.com/nvim-neo-tree/neo-tree.nvim',
+
+	-- UI Components / Statusline / Terminal
+	'https://github.com/nvim-lualine/lualine.nvim',
+	'https://github.com/akinsho/toggleterm.nvim',
+	'https://github.com/MunifTanjim/nui.nvim',
+
+	-- Fun / Visual Extras
+	'https://github.com/sphamba/smear-cursor.nvim.git',
 	'https://github.com/allaman/emoji.nvim',
-	'https://github.com/mistweaverco/kulala.nvim',
 	'https://github.com/ziontee113/icon-picker.nvim',
+
+	-- rest api
+	'https://github.com/mistweaverco/kulala.nvim',
 }
 
 -- Auto-import every *.lua file in lua/plugins/
@@ -124,4 +142,23 @@ for _, path in ipairs(vim.fn.glob(plugins_dir .. '/*.lua', false, true)) do
 	if not ok then vim.notify('Error loading ' .. mod .. ':\n' .. err, vim.log.levels.ERROR) end
 end
 
+-- ============================================
+-- AUTO RELOAD FILE ON EXTERNAL CHANGE
+-- ============================================
+vim.o.autoread = true
+
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  pattern = '*',
+  callback = function()
+    if vim.fn.mode() ~= 'c' then
+      vim.cmd 'checktime'
+    end
+  end,
+})
+
 vim.cmd.colorscheme 'oxocarbon'
+
+vim.api.nvim_set_hl(0, "FloatBorder", {
+  fg = "#019606",
+  bg = "NONE",
+})

@@ -8,7 +8,7 @@ window {
 
 #input {
     margin: 0;
-    border: 3px solid #019606;
+    border: 3px solid #aaaaaa;
     border-radius:0;
     background-color: rgb(0, 0, 0);
     color : #fdf6e3;
@@ -35,7 +35,7 @@ window {
 
 #scroll {
     margin: 0px;
-    border: 2px solid #019606;
+    border: 2px solid #aaaaaa; /*019606 */
     border-radius: 0px;
     background-color: rgba(0, 0, 0, 0.9);
 }
@@ -43,17 +43,20 @@ window {
 #text {
     margin: 1px;
     /* background-color: #444444; */
-    color: #019606;
+    color: #aaaaaa;
+    /* color: #019606; */
 }
 
 #entry:selected {
-    background-color: #019606;
+    /* background-color: #019606; */
+    background-color: #aaaaaa;
     color : #000;
     outline: none;
 }
 
 #entry:selected * {
-    background-color: #019606;
+    /* background-color: #019606; */
+    background-color: #aaaaaa;
     color : #000;
     outline: none;
 }
