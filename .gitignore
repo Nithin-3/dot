@@ -1,0 +1,14 @@
+# Ignore everything
+*
+!.gitignore
+# Allow directory traversal
+!*/
+
+# Include these folders and everything inside
+!foot/**
+!hypr/**
+!nvim/**
+!pypr/**
+!swaync/**
+!wall/**
+!wofi/**
