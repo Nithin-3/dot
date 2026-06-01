@@ -1,0 +1,18 @@
+(defpoll time :interval "1s"
+  "date '+%H:%M:%S'")
+
+(defpoll date :interval "60s"
+  "date '+%a, %d %b %Y'")
+
+(defwindow clock
+ :monitor 0
+
+  :geometry (geometry :x "70%" :y "70%" :width "320px" :height "140px")
+  :stacking "bg"
+  :focusable false
+
+  (box
+    :orientation "v"
+    :spacing 10
+    (label :text time :class "time")
+    (label :text date :class "date")))

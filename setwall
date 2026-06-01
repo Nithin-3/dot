@@ -1,0 +1,26 @@
+#!/bin/bash
+
+WALL="$1"
+
+# Check argument
+if [ -z "$WALL" ]; then
+    echo "Usage: setwall.sh /path/to/wallpaper"
+    exit 1
+fi
+
+# Check file exists
+if [ ! -f "$WALL" ]; then
+    echo "Error: file does not exist -> $WALL"
+    exit 1
+fi
+
+# Set wallpaper
+awww img "$WALL"
+
+# Generate pywal colors
+wal -i "$WALL" -s
+
+# Reload eww
+eww reload
+
+echo "Wallpaper applied successfully."

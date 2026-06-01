@@ -1,0 +1,13 @@
+#!/bin/env bash
+
+bat=${1:-$(< /sys/class/power_supply/BAT1/capacity)}
+status=${2:-$(< /sys/class/power_supply/BAT1/status)}
+
+if [[ "$status" == "Charging" ]]; then
+    ~/setwall ~/.config/wall/green.jpg
+elif (( bat > 21 )); then
+    ~/setwall ~/.config/wall/green.jpg
+else
+    ~/setwall ~/.config/wall/red.jpg
+    curl -fsS -H "Title: Battery critically low" -H "Priority: 4" -d "Battery: ${bat}%" https://ntfy.sh/eno
+fi
