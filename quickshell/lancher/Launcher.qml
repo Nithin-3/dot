@@ -153,7 +153,7 @@ PanelWindow {
         }
 
         model: root.filteredEntries
-        pathItemCount: 12
+        pathItemCount: 20
         interactive: false
 
         delegate: Item {
