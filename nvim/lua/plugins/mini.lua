@@ -27,7 +27,7 @@ require("mini.files").setup({
 	},
 })
 
-vim.keymap.set("n", ";", function()
+vim.keymap.set("n", "\\f", function()
 	require("mini.files").open(vim.uv.cwd())
 end, { desc = "MiniFiles open cwd", silent = true })
 
@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("User", {
 		end
 
 		-- close
-		map(";", function()
+		map("\\f", function()
 			require("mini.files").close()
 		end, "Close MiniFiles")
 

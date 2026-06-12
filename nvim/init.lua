@@ -97,7 +97,7 @@ vim.pack.add {
 	'https://github.com/mason-org/mason-lspconfig.nvim',
 
 	-- Autocomplete / Snippets
-	{ src = 'https://github.com/Saghen/blink.cmp', build = 'cargo build --release' },
+	{ src = 'https://github.com/Saghen/blink.cmp', version = "1.*", build = "cargo build --release", },
 	'https://github.com/rafamadriz/friendly-snippets',
 
 	-- Fuzzy Finding / Telescope
@@ -148,17 +148,17 @@ end
 vim.o.autoread = true
 
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
-  pattern = '*',
-  callback = function()
-    if vim.fn.mode() ~= 'c' then
-      vim.cmd 'checktime'
-    end
-  end,
+	pattern = '*',
+	callback = function()
+		if vim.fn.mode() ~= 'c' then
+			vim.cmd 'checktime'
+		end
+	end,
 })
 
-vim.cmd.colorscheme 'oxocarbon'
+vim.cmd.colorscheme 'default'
 
 vim.api.nvim_set_hl(0, "FloatBorder", {
-  fg = "#019606",
-  bg = "NONE",
+	fg = "#019606",
+	bg = "NONE",
 })
