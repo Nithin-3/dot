@@ -156,7 +156,7 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHo
 	end,
 })
 
-vim.cmd.colorscheme 'default'
+vim.cmd.colorscheme 'carbonfox'
 
 vim.api.nvim_set_hl(0, "FloatBorder", {
 	fg = "#019606",
