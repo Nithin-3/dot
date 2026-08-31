@@ -1,33 +1,28 @@
 [pyprland]
 plugins = ["scratchpads"]
 
-[scratchpads.term]
-animation = "fromTop"
+[scratchpads.protonvpn]
+command = "protonvpn-app"
+class = "proton.vpn.app.gtk"
+lazy = true
+multi = false
+
+[scratchpads.foot-dropterm]
 command = "foot --app-id foot-dropterm --title foot-dropterm"
 class = "foot-dropterm"
-size = "70% 70%"
-margin = 50
-pinned = false
-
-[scratchpads.vpn]
-command = "protonvpn-app"
-class = "protonvpn-app"
-size = "40% 60%"
-margin = 50
 lazy = true
+size = "50% 60%"
+position = "50% 5%"
+animation = "fromRight"
 
-[scratchpads.btop]
-animation = "fromBottom"
-command = "btop"
-class = "btop-scratch"
-size = "80% 80%"
-margin = 50
+[scratchpads.foot-btop]
+command = "foot --app-id foot-btop --title foot-btop -e btop"
+class = "foot-btop"
 lazy = true
+size = "50% 70%"
 
-[scratchpads.nvtop]
-animation = "fromLeft"
-command = "nvtop"
-class = "nvtop-scratch"
-size = "80% 80%"
-margin = 50
+[scratchpads.foot-nvtop]
+command = "foot --app-id foot-nvtop --title foot-nvtop -e nvtop"
+class = "foot-nvtop"
 lazy = true
+size = "50% 70%"

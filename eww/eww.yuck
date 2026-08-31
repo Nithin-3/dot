@@ -16,3 +16,15 @@
     :spacing 10
     (label :text time :class "time")
     (label :text date :class "date")))
+
+(defwindow windows
+ :monitor 0
+  :geometry (geometry :x "80%" :y "85%" :width "400px" )
+  :stacking "fg"
+  :focusable false
+
+  (box
+    :orientation "v"
+    (label :text "Activate Linux" :class "title" :xalign 0)
+    (label :text "force yout co-worker to use linux" :class "subtitle" :xalign 0)
+))
